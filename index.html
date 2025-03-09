@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultraedit Text Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            height: 80px;
+            /* justify-content: space-evenly; */
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 320px;
+        }
+
+        .img {
+            background-image: url(Ultraedit.png);
+            background-size: cover;
+            height: 50px;
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .pages {
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #222222;
+            
+            /* padding: 5px */
+        }
+        li:hover{
+            /* border: 2px solid black; */
+            background-color: #00b6d1;
+            border-radius: 5px ;
+            color: #f9f9f9;
+            /* font-weight: bold; */
+            
+        }
+
+        select {
+            border: none;
+            color:#000000;
+            background-color: #ffffff;
+        }
+
+
+        li {
+            
+            padding: 10px;
+        }
+
+        i {
+            padding: 10px;
+            
+        }
+
+        /* Main section  */
+
+        .main_section {
+            width: 960px;
+            margin: auto;
+        }
+
+        .H1 {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .p2 {
+            text-align: center;
+            font-size: 24px;
+            padding-top: 50px;
+        }
+
+        button {
+            text-align: center;
+            background-color: #00b6d1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+        button:hover{
+            background-color:#0b2285 ;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40PX
+        }
+
+        .section_heading {
+            display: flex;
+            align-items: center;
+            color: #222222;
+            padding: 15px 0px 15px 0px;
+            margin: 0px 0px 20px;
+        }
+
+        .Large_text {
+            font-size: 24px;
+
+        }
+
+        .product_section {
+            width: 960px;
+            padding: 0px 0px 50px;
+            height: 880px;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: start;
+            gap: 27px;
+        }
+
+        .box {
+            height: 202px;
+            width: 302px;
+            background-color: #f9f9f9;
+            padding: 16px;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 5px;
+            color: #222222;
+
+
+        }
+        .box_h3 h3 {
+            font-size: 20px;
+            padding: 0px 0px 10px;
+        }
+
+        .box_h4 h4 {
+            font-size: 12px;
+            padding: 0px 0px 10px;
+            font-weight: normal;
+        }
+
+        .box_button button {
+            height: 32px;
+            width: 127px;
+            font-size: 12px;
+            background-color: #5cb85c;
+            padding: 8px 16px;
+            margin: 8px 0px 0px;
+
+        }
+        .box_button button:hover{
+            background-color: #008000;
+        }
+
+
+        .box_code :first-child {
+            font-size: 10px;
+            margin: 10px 0px 0px;
+        }
+
+        .box_code :last-child {
+            font-size: 8px;
+            padding: 0px 15px;
+            word-break: break-word;
+            line-height: 15px;
+        }
+
+        /* subscribe_section */
+        .subscribe_section {
+
+            height: auto;
+            padding: 43px 0px;
+            background-color: #222222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .last_section1 {
+            display: flex;
+            width: 960px;
+            height: 250px;
+            text-align: center;
+            padding: auto;
+            padding: 21px 0px;
+
+        }
+
+        .enter_email {
+            height: 250px;
+            width: 550px;
+            background-color: #fff;
+            border-radius: 12px;
+            color: #222222;
+            padding: 30px;
+            margin: 0px 70px 30px;
+            box-sizing: border-box;
+        }
+
+        .newsletter {
+            box-sizing: border-box;
+            padding: 130px 0px 70px 0px;
+        }
+
+        .h3 {
+            font-size: 24px;
+            padding: 0px 0px 10px;
+        }
+
+        .email_h3 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #00b6d1;
+            padding: 0px 0px 10px;
+        }
+
+        .email_p {
+            font-size: 14px;
+            margin: 0px 0px 5px;
+            padding: 20px 0px 0px;
+        }
+
+        input {
+            font-size: 30px;
+            width: 195px;
+            height: 40px;
+            margin: 0px 0px 10px;
+            /* border: #222222; */
+        }
+
+        .email_button button {
+            width: 200px;
+            height: 40px;
+
+        }
+
+        /* footer */
+        .footer {
+            padding: 50px 0px;
+        }
+
+        .main_footer {
+            margin: 0px 50px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .main_footer h4 {
+            padding: 0px 0px 15px;
+        }
+        .main_footer1{
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+        }
+
+        .li {
+            list-style: none;
+            padding: 2px;
+            align-items: stretch;
+            font-size: 14px;
+        }
+        .main_footer .enter_email{
+            padding: 0px;
+            margin: 0px;
+            width: 150px;
+        }
+        .socialmedia{
+            left: 400px;
+            position: relative;
+        }
+        .socialmedia i{
+            padding: 5px;
+            font-size: 24px;
+            
+        }
+        .footer_bar{
+            padding: 35px 0px;
+        }
+        .copyright{
+            display: flex;
+            justify-content: center;
+            padding-right: 500px ;
+            margin: 10px 0px;
+            font-size: 14PX;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <div class="img"></div>
+                <div class="logo_text">
+                    <h1>UltraEdit</h1>
+                </div>
+            </div>
+            <div class="pages">
+                <li>Products <select name="" id=""></select> </li>
+                <li>For business <select name="" id=""></select></li>
+                <li>Resources <select name="" id=""></select></li>
+                <li>Support <select name="" id=""></select></li>
+                <li>Our company <select name="" id=""></select></li>
+            </div>
+            <div class="lan_icon"><i class="fa-solid fa-language"></i></div>
+            <div class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        </div>
+    </header>
+    <main>
+
+        <div class="main_section">
+            <div class="H1">Download <b>UltraEdit</b> for Windows</div>
+            <div class="p2">Download and try UltraEdit before you buy it! This download includes the full Windows
+                version of the text editor.</div>
+            <div class="button"><button>DOWNLOAD MAC OR LINUX VERSION</button></div>
+            <div class="section_heading">
+                <div class="img"></div>
+                <div class="heading">
+                    <p>
+                    <p class="Large_text">Download UltraEdit</p> v2024.3 (released 2025-02-20) | Hotfix information </p>
+                </div>
+            </div>
+            <div class="product_section">
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>English</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>English</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>Deutsch</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>German</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>Italiano</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Italian</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>Español</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Spanish</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>français</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>French</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>Português brasileiro</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Brazilian Portuguese</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>日本</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Japanese</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>한국어</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Korean</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>华语</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Chinese</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_h3">
+                        <h3>華語</h3>
+                    </div>
+                    <div class="box_h4">
+                        <h4>Traditional Chinese</h4>
+                    </div>
+                    <div class="box_button"><button>Download 64-bit</button></div>
+                    <div class="box_code">
+                        <p>SHA256</p>
+                        <p>8229160C746CE6364F56DFF39CE083C064BF9A43A67C786976C63AF0EB8E6259</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe_section">
+            <div class="last_section1">
+                <div class="newsletter">
+                    <div class="h3">
+                        <h3>Join the UltraEdit newsletter</h3>
+                    </div>
+                    <div class="p">Sign up for our newsletter and receive emails for the latest news, blogs, and special
+                        deals on UltraEdit.</div>
+                </div>
+                <div class="enter_email">
+                    <div class="email_h3">
+                        <p>Subscribe to our emails</p>
+                    </div>
+                    <div class="email_p">
+                        <p>Enter email address</p>
+                    </div>
+                    <div class="email-placeholder">
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="email_button"><button>Sign Up</button></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="main_footer">
+                <div class="main_footer1">
+                    <ul>
+                        <h4>What’s your language?</h4>
+                        <li class="li">Code editor (General)</li>
+                        <li class="li">Text editor</li>
+                        <li class="li"> Hex/Binary</li>
+                        <li class="li">HTML</li>
+                        <li class="li">CSS</li>
+                        <li class="li">Unix shell scripts</li>
+                        <li class="li">PL/SQL</li>
+                        <li class="li">EDI</li>
+                        <li class="li">C++</li>
+                        <li class="li">PHP</li>
+                        <li class="li">XML</li>
+                        <li class="li">Markdown</li>
+                        <li class="li">SAS</li>
+                        <li class="li">Visual Basic (VB)</li>
+                    </ul>
+                </div>
+                <div class="main_footer1">
+                    <ul>
+                        <h4>What do you need to do?</h4>
+                        <li class="li">Edit large text files</li>
+                        <li class="li">Work with unique languages</li>
+                        <li class="li">Edit hex and binary files</li>
+                        <li class="li">Reformat XML/JSON files</li>
+                        <li class="li">Massive find and replace</li>
+                        <li class="li">Edit via columns/blocks</li>
+                    </ul>
+                </div>
+                <div class="main_footer1">
+                    <ul>
+                        <h4>What type of user are you?</h4>
+                        <li class="li">Programmer / Developer</li>
+                        <li class="li">Web Developer</li>
+                        <li class="li">Database Manager</li>
+                        <li class="li">System Administrator</li>
+                        <li class="li">Technical Writer</li>
+                        <li class="li">Editor / Publisher</li>
+                        <li class="li">Medical / Pharmaceutical</li>
+                    </ul>
+                </div>
+                <div class="main_footer1">
+                    <ul>
+                        <h4>General</h4>
+                        <li class="li">Contact</li>
+                        <li class="li">License Agreement (EULA)</li>
+                        <li class="li">End of Life Policy</li>
+                        <li class="li">Libraries and Patents</li>
+                        <li class="li">Information Policy</li>
+                        <li class="li">Privacy Policy</li>
+                        <li class="li">Uninstall Instructions</li>
+                        <li class="li">Sitemap</li>
+                        <li class="li">Legal</li>
+                        <li class="li">Software Security</li>
+                    </ul>
+                </div>
+                <div class="enter_email">
+                    <div class="email_h3">
+                        <p>Subscribe to our emails</p>
+                    </div>
+                    <div class="email_p">
+                        <p>Enter email address</p>
+                    </div>
+                    <div class="email-placeholder">
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="email_button"><button>Sign Up</button></div>
+                </div>
+            </div>
+            <div class="footer_bar">
+                <div class="logo">
+                    <div class="img"></div>
+                    <div class="logo_text">
+                        <h1>UltraEdit</h1>
+                    </div>
+                    <div class="socialmedia">
+                        <i class="fa-brands fa-x-twitter"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-instagram"></i>  
+                        <i class="fa-brands fa-linkedin"></i>
+                    </div>
+
+            </div>
+            <div class="copyright">
+                <p>©2025 UltraEdit. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
